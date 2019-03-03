@@ -35,6 +35,7 @@ class method1 : public Base_class_method
 public:
 	method1(int _N, MyFunction _fun, double _r, double _eps, double _a, double _b);
 	double UseMethod_N();
+	double UseMethod_EPS();
 	double R(int j);
 };
 
@@ -45,8 +46,7 @@ protected:
 public:
 	method_piyav(int _N, MyFunction _fun, double _r, double _eps, double _a, double _b);
 	virtual double UseMethod_N();
-	
-	
+	double UseMethod_EPS();
 	double new_point_func(int j);
 };
 
@@ -57,7 +57,7 @@ protected:
 public:
 	method_strongin(int _N, MyFunction _fun, double _r, double _eps, double _a, double _b);
 	double UseMethod_N();
-	
+	double UseMethod_EPS();
 	double new_point_func(int j);
 };
 

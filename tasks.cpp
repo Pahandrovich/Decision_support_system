@@ -241,3 +241,155 @@ double method_strongin::new_point_func(int j)
 	double m = m_func(j);
 	return (0.5*(lambda[j + 1] + lambda[j]) - 0.5*(fun.func_calc(lambda[j + 1]) - fun.func_calc(lambda[j])) / m);
 }
+
+double method1::UseMethod_EPS()
+{
+	lambda[0] = a;
+	lambda[lambda.size() - 1] = b;
+
+	if (fun.func_calc(a) < fun.func_calc(b))
+	{
+		Gmin_x = a;
+		Gmin_y = fun.func_calc(a);
+	}
+	else
+	{
+		Gmin_x = b;
+		Gmin_y = fun.func_calc(b);
+	}
+
+	double R_curr = 0.0;
+	double R_max = 0.0;
+	int num_of_interval = 0;
+	double new_point = 0.0;
+	double interval_length = 0.0;
+
+	int i = 2;
+	while (true)
+	{
+		R_max = 0;
+		for (int j = 0; j < (i - 1); j++)
+		{
+			R_curr = R(j);
+			if (R_curr > R_max)
+			{
+				num_of_interval = j;
+				R_max = R_curr;
+			}
+		}
+		interval_length = (lambda[num_of_interval + 1] - lambda[num_of_interval]);
+		if (interval_length <= eps) break;
+		new_point = lambda[num_of_interval] + (lambda[num_of_interval + 1] - lambda[num_of_interval]) / 2.0;
+		lambda.push_back(new_point);
+		std::sort(lambda.begin(), lambda.end());
+
+		if (fun.func_calc(new_point) < Gmin_y)
+		{
+			Gmin_x = new_point;
+			Gmin_y = fun.func_calc(new_point);
+		}
+		i++;
+		
+	}
+	return Gmin_x;
+}
+
+double method_piyav::UseMethod_EPS()
+{
+	lambda[0] = a;
+	lambda[lambda.size() - 1] = b;
+
+	if (fun.func_calc(a) < fun.func_calc(b))
+	{
+		Gmin_x = a;
+		Gmin_y = fun.func_calc(a);
+	}
+	else
+	{
+		Gmin_x = b;
+		Gmin_y = fun.func_calc(b);
+	}
+
+	double R_curr = 0.0;
+	double R_max = 0.0;
+	int num_of_interval = 0;
+	double new_point = 0.0;
+	double interval_length = 0.0;
+
+	for (int i = 2; true; i++)
+	{
+		R_max = 0;
+		for (int j = 0; j < (i - 1); j++)
+		{
+			R_curr = this->R(j);
+			if (R_curr > R_max)
+			{
+				num_of_interval = j;
+				R_max = R_curr;
+			}
+		}
+		interval_length = (lambda[num_of_interval + 1] - lambda[num_of_interval]);
+		if (interval_length <= eps) break;
+		new_point = new_point_func(num_of_interval);
+		lambda.push_back(new_point);
+		std::sort(lambda.begin(), lambda.end());
+
+		if (fun.func_calc(new_point) < Gmin_y)
+		{
+			Gmin_x = new_point;
+			Gmin_y = fun.func_calc(new_point);
+		}
+
+	}
+	return Gmin_x;
+}
+
+double method_strongin::UseMethod_EPS()
+{
+	lambda[0] = a;
+	lambda[lambda.size() - 1] = b;
+
+	if (fun.func_calc(a) < fun.func_calc(b))
+	{
+		Gmin_x = a;
+		Gmin_y = fun.func_calc(a);
+	}
+	else
+	{
+		Gmin_x = b;
+		Gmin_y = fun.func_calc(b);
+	}
+
+	double R_curr = 0.0;
+	double R_max = 0.0;
+	int num_of_interval = 0;
+	double new_point = 0.0;
+	double interval_length = 0.0;
+
+	for (int i = 2; true; i++)
+	{
+		R_max = 0;
+		for (int j = 0; j < (i - 1); j++)
+		{
+			R_curr = this->R(j);
+			if (R_curr > R_max)
+			{
+				num_of_interval = j;
+				R_max = R_curr;
+			}
+		}
+		interval_length = (lambda[num_of_interval + 1] - lambda[num_of_interval]);
+		if (interval_length <= eps) break;
+		new_point = new_point_func(num_of_interval);
+		lambda.push_back(new_point);
+		std::sort(lambda.begin(), lambda.end());
+
+		if (fun.func_calc(new_point) < Gmin_y)
+		{
+			Gmin_x = new_point;
+			Gmin_y = fun.func_calc(new_point);
+		}
+
+	}
+	return Gmin_x;
+}

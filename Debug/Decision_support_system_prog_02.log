@@ -1,7 +1,10 @@
 ﻿  MyForm.cpp
-d:\pavel\university\vs_project\decision_support_system_prog_02\decision_support_system_prog_02\myform.h(520): warning C4018: <: несоответствие типов со знаком и без знака
-d:\pavel\university\vs_project\decision_support_system_prog_02\decision_support_system_prog_02\myform.h(538): warning C4018: <: несоответствие типов со знаком и без знака
-d:\pavel\university\vs_project\decision_support_system_prog_02\decision_support_system_prog_02\myform.h(555): warning C4018: <: несоответствие типов со знаком и без знака
+d:\pavel\university\vs_project\decision_support_system_prog_02\decision_support_system_prog_02\myform.h(595): warning C4018: <: несоответствие типов со знаком и без знака
+d:\pavel\university\vs_project\decision_support_system_prog_02\decision_support_system_prog_02\myform.h(606): warning C4018: <: несоответствие типов со знаком и без знака
+d:\pavel\university\vs_project\decision_support_system_prog_02\decision_support_system_prog_02\myform.h(624): warning C4018: <: несоответствие типов со знаком и без знака
+d:\pavel\university\vs_project\decision_support_system_prog_02\decision_support_system_prog_02\myform.h(637): warning C4018: <: несоответствие типов со знаком и без знака
+d:\pavel\university\vs_project\decision_support_system_prog_02\decision_support_system_prog_02\myform.h(655): warning C4018: <: несоответствие типов со знаком и без знака
+d:\pavel\university\vs_project\decision_support_system_prog_02\decision_support_system_prog_02\myform.h(668): warning C4018: <: несоответствие типов со знаком и без знака
 d:\pavel\university\vs_project\decision_support_system_prog_02\decision_support_system_prog_02\myform.cpp(7): warning C4829: Возможно, неправильные параметры функции main. Рекомендуемый вариант - "int main(Platform::Array<Platform::String^>^ argv)"
   MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
   Decision_support_system_prog_02.vcxproj -> D:\PAVEL\University\VS_Project\Decision_support_system_prog_02\Debug\Decision_support_system_prog_02.exe
