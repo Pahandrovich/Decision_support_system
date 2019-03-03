@@ -18,6 +18,8 @@ protected:
 	//int flag_stop_choise;
 	
 	double min(double a, double b) { if (a < b) return a; else return b; }
+	double M_func(int j);
+	double m_func(int j);
 
 public:
 	std::vector<double> lambda;
@@ -41,7 +43,8 @@ public:
 	method_piyav(int _N, MyFunction _fun, double _r, double _eps, double _a, double _b);
 	double UseMethod_N();
 	double R(int j);
-	double M_func(int j);
+	
+	double new_point_func(int j);
 };
 
 #endif // TASKS_H

@@ -524,6 +524,22 @@ namespace Decisionsupportsystemprog02 {
 			}
 
 		}
+		else if (radioButton2->Checked)
+		{
+			method_piyav task(N, func, r, eps, t, T);
+			if (radioButton_N->Checked)
+			{
+				//textdebug->Text = Convert::ToString(task.N);
+				Global_min_x = task.UseMethod_N();
+				Global_min_y = func.func_calc(Global_min_x);
+				textBox1->Text = Convert::ToString(Global_min_x);
+				textBox2->Text = Convert::ToString(Global_min_y);
+				for (int i = 0; i < task.lambda.size(); i++)
+				{
+					point_list->Add(task.lambda[i], func.func_calc(task.lambda[i]));
+				}
+			}
+		}
 		LineItem^ Curve1 = panel1->AddCurve("x_y", point_list, Color::Red, SymbolType::VDash);
 
 		zedGraphControl1->AxisChange();

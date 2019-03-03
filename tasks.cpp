@@ -112,7 +112,7 @@ double method_piyav::UseMethod_N()
 				R_max = R_curr;
 			}
 		}
-		new_point = lambda[num_of_interval] + (lambda[num_of_interval + 1] - lambda[num_of_interval]) / 2.0;
+		new_point = new_point_func(num_of_interval);
 		lambda.push_back(new_point);
 		std::sort(lambda.begin(), lambda.end());
 
@@ -132,14 +132,13 @@ double method_piyav::R(int j)
 		m = 0,
 		M = 0;
 	M = M_func(j);
-	if (M > 0) m = r * M;
-	else m = 1;
+	m = m_func(j);
 
 	res = 0.5*m*(lambda[j + 1] - lambda[j]) - 0.5*(fun.func_calc(lambda[j + 1]) - fun.func_calc(lambda[j]));
 	return res;
 }
 
-double method_piyav::M_func(int j)
+double Base_class_method::M_func(int j)
 {
 	double res = 0;
 	double curr = 0;
@@ -149,4 +148,19 @@ double method_piyav::M_func(int j)
 		if (curr > res) res = curr;
 	}
 	return res;
+}
+
+double method_piyav::new_point_func(int j)
+{
+	double m = m_func(j);
+	return (0.5*(lambda[j + 1] - lambda[j]) - 0.5*(fun.func_calc(lambda[j + 1]) - fun.func_calc(lambda[j])) / m);
+}
+
+double Base_class_method::m_func(int j)
+{
+	double M = M_func(j),
+		m = 0;
+	if (M > 0) m = r * M;
+	else m = 1;
+	return m;
 }
