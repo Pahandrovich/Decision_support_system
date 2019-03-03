@@ -7,7 +7,7 @@
 
 class Base_class_method
 {
-protected:
+public:
 	MyFunction fun;
 	double r;
 	double eps;
@@ -20,10 +20,11 @@ protected:
 	double min(double a, double b) { if (a < b) return a; else return b; }
 	double M_func(int j);
 	double m_func(int j);
+	virtual double R(int j) = 0;
 
 public:
 	std::vector<double> lambda;
-	virtual double R(int j) = 0;
+	
 	virtual double UseMethod_N() = 0;
 
 };
@@ -39,10 +40,23 @@ public:
 
 class method_piyav : public Base_class_method
 {
+protected:
+	double R(int j);
 public:
 	method_piyav(int _N, MyFunction _fun, double _r, double _eps, double _a, double _b);
-	double UseMethod_N();
+	virtual double UseMethod_N();
+	
+	
+	double new_point_func(int j);
+};
+
+class method_strongin : public Base_class_method
+{
+protected:
 	double R(int j);
+public:
+	method_strongin(int _N, MyFunction _fun, double _r, double _eps, double _a, double _b);
+	double UseMethod_N();
 	
 	double new_point_func(int j);
 };
