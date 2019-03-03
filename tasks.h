@@ -34,4 +34,12 @@ public:
 	double R(double i);
 };
 
+class method_piyav : public Base_class_method
+{
+public:
+	method_piyav(int _N, MyFunction _fun, double _r, double _eps, double _a, double _b);
+	double UseMethod_N();
+	double R(double i);
+};
+
 #endif // TASKS_H
