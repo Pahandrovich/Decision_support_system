@@ -142,9 +142,9 @@ double Base_class_method::M_func(int j)
 {
 	double res = 0;
 	double curr = 0;
-	for (int i = 0; i < lambda.size(); i++)
+	for (int i = 0; i < lambda.size()-1; i++)
 	{
-		curr = (fun.func_calc(lambda[j + 1]) - fun.func_calc(lambda[j])) / (lambda[j + 1] - lambda[j]);
+		curr = (fun.func_calc(lambda[i + 1]) - fun.func_calc(lambda[i])) / (lambda[i + 1] - lambda[i]);
 		if (curr > res) res = curr;
 	}
 	return res;
@@ -156,7 +156,7 @@ double Base_class_method::m_func(int j)
 		m = 0;
 	if (M > 0) m = r * M;
 	else m = 1;
-	return 6;
+	return m;
 }
 
 double method_piyav::new_point_func(int j)
